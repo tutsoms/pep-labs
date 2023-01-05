@@ -53,7 +53,7 @@ public class ListExercise {
      * @return nothing, pass by reference will cause changes to the list object to be reflected across the program.
      */
     public void addToList(List<Integer> list, int value){
-        list.add(list, 1);
+        list.add(value);
     }
 
     /**
@@ -69,7 +69,7 @@ public class ListExercise {
      * @return the int at the location in 'list' represented by 'index'.
      */
     public int get(List<Integer> list, int index){
-        return 1;
+        return list.get(index);
     }
 
     /**
