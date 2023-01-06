@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class Average {
     /**
@@ -18,6 +19,7 @@ public class Average {
      * @return the average of all the values of nums.
      */
     public double getAvg(int[] nums){
-        return 0;
-    }
+        int sum = Arrays.stream(nums).sum();
+        return (double) sum / nums.length;
+        }
 }
