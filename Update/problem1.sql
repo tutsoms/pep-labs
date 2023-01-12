@@ -1,3 +1,1 @@
-UPDATE site_user
-SET lastname = 'Rush'
-WHERE firstname = 'Alexa';
+UPDATE site_user SET lastname = 'Rush' WHERE id = '2';
