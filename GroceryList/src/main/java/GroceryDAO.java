@@ -25,19 +25,19 @@ public class GroceryDAO {
      */
     public List<String> getAllGroceries(){
         Connection connection = ConnectionUtil.getConnection();
-        List<String> groceries = new ArrayList<>();
+        List<String> grocery = new ArrayList<>();
         try {
             //Write SQL logic here
-            String sql = "change me";
+            String sql = "SELECT grocery_name FROM grocery";
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                groceries.add(rs.getString("grocery_name"));
+                grocery.add(rs.getString("grocery_name"));
             }
         }catch(SQLException e){
             e.printStackTrace();
         }
-        return groceries;
+        return grocery;
     }
     /**
      * TODO: Insert a new row into the Grocery table, with the sole column containing groceryName.
@@ -48,8 +48,9 @@ public class GroceryDAO {
         Connection connection = ConnectionUtil.getConnection();
         try {
             //Write SQL logic here
-            String sql = "change me";
+            String sql = "INSERT INTO grocery (grocery_name) VALUES (?)";
             PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, groceryName);
             ps.executeUpdate();
         }catch(SQLException e){
             e.printStackTrace();
