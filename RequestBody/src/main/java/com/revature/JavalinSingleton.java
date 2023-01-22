@@ -1,5 +1,10 @@
 package com.revature;
 
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
 import io.javalin.Javalin;
 
 /**
@@ -17,7 +22,10 @@ public class JavalinSingleton {
          * Note: Please refer to the "RequestBody.MD" file for more assistance if needed.
          */
         app.post("/problem1", ctx -> {
-                //implement logic here
+            ObjectMapper objectMapper = new ObjectMapper();
+            JsonNode jsonNode = objectMapper.readTree(ctx.body());
+            String artistName = jsonNode.get("artistName").asText();
+            ctx.json(artistName);
         });
 
         /**
@@ -28,7 +36,10 @@ public class JavalinSingleton {
          * Note: Please refer to the "RequestBody.MD" file for more assistance if needed.
          */
         app.post("/problem2", ctx -> {
-               //implement logic here
+            ObjectMapper objectMapper = new ObjectMapper();
+            JsonNode jsonNode = objectMapper.readTree(ctx.body());
+            ((ObjectNode) jsonNode).put("artistName", "Beatles");
+            ctx.json(jsonNode);
         });
 
 
