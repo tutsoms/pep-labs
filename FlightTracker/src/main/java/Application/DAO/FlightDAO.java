@@ -151,7 +151,7 @@ public class FlightDAO {
         Connection connection = ConnectionUtil.getConnection();
         try {
             //Write SQL logic here
-            String sql = "UPDATE flight SET departure_city = ?, arrival_city = ? WHERE flight_id = ?";
+            String sql = "UPDATE flight SET departure_city = ?, arrival_city = ? WHERE flight_id = ?;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
 preparedStatement.setString(1, flight.getDeparture_city());
