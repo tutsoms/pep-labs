@@ -1,2 +1,1 @@
-SELECT * FROM student
-RIGHT OUTER JOIN class ON student.class_title = class.class_title
+SELECT * FROM class RIGHT OUTER JOIN textbook ON class.class_title = textbook.class_title;
