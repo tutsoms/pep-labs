@@ -12,13 +12,15 @@ public class LargestSum {
      */
     public int bigSum(List<Integer> nums){
         Collections.sort(nums, Collections.reverseOrder());
-        int sum = 0;
+        int largestSum = 0;
         for (int i = 0; i < nums.size() - 1; i++) {
             if (!nums.get(i).equals(nums.get(i+1))) {
-                sum = nums.get(i) + nums.get(i+1);
-                break;
+                int sum = nums.get(i) + nums.get(i+1);
+                if (sum > largestSum) {
+                    largestSum = sum;
+                }
             }
         }
-        return sum;
+        return largestSum;
     }
 }
